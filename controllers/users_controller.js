@@ -1,6 +1,6 @@
 const User = require('../models/user');
 
-
+//lets keep is same as of before
 module.exports.profile = function(req, res){
     User.findById(req.params.id,function(err,user) { 
     return res.render('user_profile', {
