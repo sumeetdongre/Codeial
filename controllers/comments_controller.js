@@ -17,7 +17,7 @@ module.exports.create=async function(req,res){
         }    
         
     } catch (err) {
-        console.log('Error',err);
+        console.log('error',err);
         return;
     }
 }
@@ -25,16 +25,21 @@ module.exports.create=async function(req,res){
 module.exports.destroy=async function(req,res){
     try {
         let comment=await Comment.findById(req.params.id);
+      
         if(commment.user==req.user.id){
+           
             let postId=commment.post;
+          
             comment.remove();
             let post=await Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}});
-                return res.redirect('back');
+            req.flash('success', 'Comment deleted!');
+            return res.redirect('back');
         }else{
+            req.flash('error', 'Unauthorized');
             return res.redirect('back');
         }      
     } catch (err) {
-        console.log('Error',err);
+        console.log('error',err);
         return;      
     }    
 }
