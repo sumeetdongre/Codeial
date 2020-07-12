@@ -11,12 +11,14 @@ module.exports.profile = function(req, res){
 }
 
 module.exports.update=function(req,res){
-    if(req.user.id==req.params.id){
+    if(req.user.id == req.params.id){
         User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
+            req.flash('success', 'Updated!');
             return res.redirect('back');
         });
     }
         else{
+            req.flash('error', 'Unauthorized!');
             return res.status(401).send('Unauthorized');
         }
 }
@@ -62,6 +64,7 @@ module.exports.create = function(req, res){
                 return res.redirect('/users/sign-in');
             })
         }else{
+            req.flash('success', 'You have signed up, login to continue!');
             return res.redirect('back');
         }
 
