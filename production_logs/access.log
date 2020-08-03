@@ -1,0 +1,10 @@
+[0mGET / [36m304[0m 3609.842 ms - -[0m
+[0mGET / [36m304[0m 2487.577 ms - -[0m
+[0mGET / [36m304[0m 2209.025 ms - -[0m
+[0mGET /users/sign-in [36m304[0m 27.139 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 93.304 ms - 46[0m
+[0mGET / [32m200[0m 147.832 ms - 43376[0m
+[0mGET /users/sign-out [36m302[0m 10.434 ms - 46[0m
+[0mGET / [32m200[0m 119.257 ms - 28390[0m
+[0mGET / [32m200[0m 2313.252 ms - 28045[0m
+[0mGET / [36m304[0m 2292.263 ms - -[0m
